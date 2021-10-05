@@ -1,6 +1,9 @@
 # tugas-1-maxling92
 tugas-1-maxling92 created by GitHub Classroom
 
+Nama : Maximilian H M Lingga
+NRP : 05111940000092
+
 Kotak Headphone
 
 ![20210921_201340](https://user-images.githubusercontent.com/81459084/134263943-79d8f97d-b832-4109-a6ca-f3b90538c10b.jpg)
