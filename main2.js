@@ -4,8 +4,7 @@ function main() {
 
     // Kotak kiri 
     const kotak1 = {
-        colorAtas : [0.578, 0.156, 0.600], // warna  kotak atas (ungu)
-        colorBawah : [0.156, 0.430, 0.600], // warna kotak bawah (biru)
+        colorKotak : [0.156, 0.430, 0.600], //(biru)
 
         // titik-titik penyusun gambar kiri
         A : [-0.654, -0.388],
@@ -19,8 +18,8 @@ function main() {
 
     // Kotak kanan
     const kotak2 = { 
-        colorAtas : [0.578, 0.156, 0.600], // warna  kotak atas (ungu)
-        colorBawah : [0.156, 0.430, 0.600], // warna kotak bawah (biru)
+        
+        colorKotak : [0.156, 0.430, 0.600], //(biru)
 
         // titik-titik penyusun gambar kanan
         A : [0.360, -0.343],
@@ -36,76 +35,44 @@ function main() {
     // kumpulan vertex pada gambar kiri dan kanan
     const vertices = [
         // objek kotak kiri
-        ...kotak1.A, ...kotak1.colorAtas,
-        ...kotak1.C, ...kotak1.colorAtas,
-        ...kotak1.E, ...kotak1.colorAtas,
-        ...kotak1.A, ...kotak1.colorAtas,
-        ...kotak1.B, ...kotak1.colorAtas,
-        ...kotak1.E, ...kotak1.colorAtas, 
-        ...kotak1.B, ...kotak1.colorAtas,
-        ...kotak1.D, ...kotak1.colorAtas,
-        ...kotak1.E, ...kotak1.colorAtas, //warna biru atas //9
+        ...kotak1.A, ...kotak1.colorKotak,
+        ...kotak1.B, ...kotak1.colorKotak,
+        ...kotak1.D, ...kotak1.colorKotak,
+        ...kotak1.A, ...kotak1.colorKotak,
+        ...kotak1.D, ...kotak1.colorKotak,
+        ...kotak1.C, ...kotak1.colorKotak, //24
 
-        ...kotak1.C, ...kotak1.colorBawah,
-        ...kotak1.E, ...kotak1.colorBawah,
-        ...kotak1.F, ...kotak1.colorBawah, 
-        ...kotak1.D, ...kotak1.colorBawah,
-        ...kotak1.E, ...kotak1.colorBawah,
-        ...kotak1.G, ...kotak1.colorBawah,
-        ...kotak1.E, ...kotak1.colorBawah,
-        ...kotak1.F, ...kotak1.colorBawah,
-        ...kotak1.G, ...kotak1.colorBawah, 
-        ...kotak1.F, ...kotak1.colorBawah,
-        ...kotak1.H, ...kotak1.colorBawah,
-        ...kotak1.G, ...kotak1.colorBawah,
-        ...kotak1.G, ...kotak1.colorBawah,
-        ...kotak1.H, ...kotak1.colorBawah,
-        ...kotak1.I, ...kotak1.colorBawah, //warna biru bawah //15
+        ...kotak1.C, ...kotak1.colorKotak,
+        ...kotak1.D, ...kotak1.colorKotak,
+        ...kotak1.E, ...kotak1.colorKotak,
+        ...kotak1.D, ...kotak1.colorKotak,
+        ...kotak1.E, ...kotak1.colorKotak,
+        ...kotak1.F, ...kotak1.colorKotak, //48
+        
+
+        
        
         // objek kotak kanan
-        ...kotak2.A, ...kotak2.colorAtas,
-        ...kotak2.C, ...kotak2.colorAtas,
-        ...kotak2.D, ...kotak2.colorAtas,
-        ...kotak2.C, ...kotak2.colorAtas,
-        ...kotak2.D, ...kotak2.colorAtas,
-        ...kotak2.H, ...kotak2.colorAtas, 
+        ...kotak2.A, ...kotak2.colorKotak,
+        ...kotak2.B, ...kotak2.colorKotak,
+        ...kotak2.D, ...kotak2.colorKotak,
+        ...kotak2.A, ...kotak2.colorKotak,
+        ...kotak2.C, ...kotak2.colorKotak,
+        ...kotak2.D, ...kotak2.colorKotak,
 
-        ...kotak2.A, ...kotak2.colorAtas,
-        ...kotak2.D, ...kotak2.colorAtas,
-        ...kotak2.E, ...kotak2.colorAtas, 
-        ...kotak2.A, ...kotak2.colorAtas,
-        ...kotak2.B, ...kotak2.colorAtas,
-        ...kotak2.E, ...kotak2.colorAtas,
-        ...kotak2.B, ...kotak2.colorAtas,
-        ...kotak2.E, ...kotak2.colorAtas,
-        ...kotak2.F, ...kotak2.colorAtas, //9
-        
-        ...kotak2.D, ...kotak2.colorBawah,
-        ...kotak2.G, ...kotak2.colorBawah,
-        ...kotak2.I, ...kotak2.colorBawah,
-        ...kotak2.G, ...kotak2.colorBawah,
-        ...kotak2.H, ...kotak2.colorBawah,
-        ...kotak2.K, ...kotak2.colorBawah, 
-        ...kotak2.G, ...kotak2.colorBawah,
-        ...kotak2.I, ...kotak2.colorBawah,
-        ...kotak2.K, ...kotak2.colorBawah, //9
+        ...kotak2.C, ...kotak2.colorKotak,
+        ...kotak2.D, ...kotak2.colorKotak,
+        ...kotak2.F, ...kotak2.colorKotak,
+        ...kotak2.C, ...kotak2.colorKotak,
+        ...kotak2.E, ...kotak2.colorKotak,
+        ...kotak2.F, ...kotak2.colorKotak,
 
-        ...kotak2.D, ...kotak2.colorBawah,
-        ...kotak2.E, ...kotak2.colorBawah,
-        ...kotak2.I, ...kotak2.colorBawah, 
-        ...kotak2.E, ...kotak2.colorBawah,
-        ...kotak2.I, ...kotak2.colorBawah,
-        ...kotak2.J, ...kotak2.colorBawah,
-        ...kotak2.E, ...kotak2.colorBawah,
-        ...kotak2.F, ...kotak2.colorBawah,
-        ...kotak2.J, ...kotak2.colorBawah, //9
-
-        ...kotak2.I, ...kotak2.colorBawah,
-        ...kotak2.J, ...kotak2.colorBawah,
-        ...kotak2.L, ...kotak2.colorBawah,
-        ...kotak2.I, ...kotak2.colorBawah,
-        ...kotak2.K, ...kotak2.colorBawah,
-        ...kotak2.L, ...kotak2.colorBawah, //6   
+        ...kotak2.B, ...kotak2.colorKotak,
+        ...kotak2.D, ...kotak2.colorKotak,
+        ...kotak2.F, ...kotak2.colorKotak,
+        ...kotak2.B, ...kotak2.colorKotak,
+        ...kotak2.F, ...kotak2.colorKotak,
+        ...kotak2.G, ...kotak2.colorKotak,       
     ]
 
     var vertexBuffer = gl.createBuffer();
@@ -208,11 +175,11 @@ function main() {
     var uChange = gl.getUniformLocation(shaderProgram, "uChange");
 
     function moveVertices() {
-        if (vertices[206] < -1.0 || vertices[176] > 1.0) {
+        if (vertices[121] < -1.0 || vertices[121] > 1.0) {
             speed = speed * -1; 
         }
 
-        for (let i = 121; i < vertices.length; i += 5) { 
+        for (let i = 61; i < vertices.length; i += 5) { 
             vertices[i] = vertices[i] + speed; 
         }
     }
@@ -224,7 +191,7 @@ function main() {
         change = change + speed;
         gl.uniform1f(uChange, change);
 
-        gl.clearColor(0.910, 0.827, 0.555, 1.0); //warna krem
+        gl.clearColor(0.00, 0.980, 0.0980, 1.0); 
         gl.clear(gl.COLOR_BUFFER_BIT);
         var primitive = gl.TRIANGLES;
         var offset = 0;
