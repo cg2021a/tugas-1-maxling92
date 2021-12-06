@@ -1,35 +1,112 @@
-function main(){
-    var canvas = document.getElementById('myCanvas');
-    var gl = canvas.getContext('webgl');
-    
-    const object_box = {
-        line_box_color1 : [0.578, 0.156, 0.600],
-        line_box_a1 : [-0.32, 0.41],
-        line_box_b1: [-0.21, 0.41],
-        line_box_c1 : [-0.3, -0.4],
-        line_box_d1 : [-0.28, -0.4],
-    };
+function main() {
+    var canvas = document.getElementById("myCanvas");
+    var gl = canvas.getContext("webgl");
 
-    const object_box2 = {
-        line_box_color2 : [0.578, 0.156, 0.600],
-        line_box_a2 : [0.26, 0.4],
-        line_box_b2: [0.42, 0.4],
-        line_box_c2 : [0.23, -0.4],
-        line_box_d2 : [0.4, -0.4],
+    // Kotak kiri 
+    const kotak1 = {
+        colorAtas : [0.578, 0.156, 0.600], // warna  kotak atas (ungu)
+        colorBawah : [0.156, 0.430, 0.600], // warna kotak bawah (biru)
 
-    };
+        // titik-titik penyusun gambar kiri
+        A : [-0.654, -0.388],
+        B : [-0.023, -0.306],
+        C : [-0.669, -0.111],
+        D : [-0.023, -0.091],
+        E : [-0.654, 0.412],
+        F : [-0.095, 0.429]
+        
+    }
 
+    // Kotak kanan
+    const kotak2 = { 
+        colorAtas : [0.578, 0.156, 0.600], // warna  kotak atas (ungu)
+        colorBawah : [0.156, 0.430, 0.600], // warna kotak bawah (biru)
+
+        // titik-titik penyusun gambar kanan
+        A : [0.360, -0.343],
+        B : [0.654, -0.480],
+        C : [0.360, -0.091],
+        D : [0.654, -0.232],
+        E : [0.641, 0.146],
+        F : [0.907, 0.045],
+        G : [0.907, -0.230]
+        
+    }
+
+    // kumpulan vertex pada gambar kiri dan kanan
     const vertices = [
-        ...object_box.line_box_a1, ...object_box.line_box_color1,
-        ...object_box.line_box_b1, ...object_box.line_box_color1,
-        ...object_box.line_box_c1, ...object_box.line_box_color1,
-        ...object_box.line_box_d1, ...object_box.line_box_color1,
+        // objek kotak kiri
+        ...kotak1.A, ...kotak1.colorAtas,
+        ...kotak1.C, ...kotak1.colorAtas,
+        ...kotak1.E, ...kotak1.colorAtas,
+        ...kotak1.A, ...kotak1.colorAtas,
+        ...kotak1.B, ...kotak1.colorAtas,
+        ...kotak1.E, ...kotak1.colorAtas, 
+        ...kotak1.B, ...kotak1.colorAtas,
+        ...kotak1.D, ...kotak1.colorAtas,
+        ...kotak1.E, ...kotak1.colorAtas, //warna biru atas //9
 
-        ...object_box2.line_box_a2, ...object_box2.line_box_color2,
-        ...object_box2.line_box_b2, ...object_box2.line_box_color2,
-        ...object_box2.line_box_c2, ...object_box2.line_box_color2,
-        ...object_box2.line_box_d2, ...object_box2.line_box_color2,
-    ];
+        ...kotak1.C, ...kotak1.colorBawah,
+        ...kotak1.E, ...kotak1.colorBawah,
+        ...kotak1.F, ...kotak1.colorBawah, 
+        ...kotak1.D, ...kotak1.colorBawah,
+        ...kotak1.E, ...kotak1.colorBawah,
+        ...kotak1.G, ...kotak1.colorBawah,
+        ...kotak1.E, ...kotak1.colorBawah,
+        ...kotak1.F, ...kotak1.colorBawah,
+        ...kotak1.G, ...kotak1.colorBawah, 
+        ...kotak1.F, ...kotak1.colorBawah,
+        ...kotak1.H, ...kotak1.colorBawah,
+        ...kotak1.G, ...kotak1.colorBawah,
+        ...kotak1.G, ...kotak1.colorBawah,
+        ...kotak1.H, ...kotak1.colorBawah,
+        ...kotak1.I, ...kotak1.colorBawah, //warna biru bawah //15
+       
+        // objek kotak kanan
+        ...kotak2.A, ...kotak2.colorAtas,
+        ...kotak2.C, ...kotak2.colorAtas,
+        ...kotak2.D, ...kotak2.colorAtas,
+        ...kotak2.C, ...kotak2.colorAtas,
+        ...kotak2.D, ...kotak2.colorAtas,
+        ...kotak2.H, ...kotak2.colorAtas, 
+
+        ...kotak2.A, ...kotak2.colorAtas,
+        ...kotak2.D, ...kotak2.colorAtas,
+        ...kotak2.E, ...kotak2.colorAtas, 
+        ...kotak2.A, ...kotak2.colorAtas,
+        ...kotak2.B, ...kotak2.colorAtas,
+        ...kotak2.E, ...kotak2.colorAtas,
+        ...kotak2.B, ...kotak2.colorAtas,
+        ...kotak2.E, ...kotak2.colorAtas,
+        ...kotak2.F, ...kotak2.colorAtas, //9
+        
+        ...kotak2.D, ...kotak2.colorBawah,
+        ...kotak2.G, ...kotak2.colorBawah,
+        ...kotak2.I, ...kotak2.colorBawah,
+        ...kotak2.G, ...kotak2.colorBawah,
+        ...kotak2.H, ...kotak2.colorBawah,
+        ...kotak2.K, ...kotak2.colorBawah, 
+        ...kotak2.G, ...kotak2.colorBawah,
+        ...kotak2.I, ...kotak2.colorBawah,
+        ...kotak2.K, ...kotak2.colorBawah, //9
+
+        ...kotak2.D, ...kotak2.colorBawah,
+        ...kotak2.E, ...kotak2.colorBawah,
+        ...kotak2.I, ...kotak2.colorBawah, 
+        ...kotak2.E, ...kotak2.colorBawah,
+        ...kotak2.I, ...kotak2.colorBawah,
+        ...kotak2.J, ...kotak2.colorBawah,
+        ...kotak2.E, ...kotak2.colorBawah,
+        ...kotak2.F, ...kotak2.colorBawah,
+        ...kotak2.J, ...kotak2.colorBawah, //9
+
+        ...kotak2.I, ...kotak2.colorBawah,
+        ...kotak2.J, ...kotak2.colorBawah,
+        ...kotak2.L, ...kotak2.colorBawah,
+        ...kotak2.I, ...kotak2.colorBawah,
+        ...kotak2.K, ...kotak2.colorBawah,
+        ...kotak2.L, ...kotak2.colorBawah, //6   
+    ]
 
     var vertexBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
@@ -125,7 +202,7 @@ function main(){
     document.addEventListener("keydown", onKeydown);
     document.addEventListener("keyup", onKeyup);
 
-    
+    //Kecepatan  (NRP 0092 - Maxi)
     var speed = 0.0092;
     var change = 0;
     var uChange = gl.getUniformLocation(shaderProgram, "uChange");
